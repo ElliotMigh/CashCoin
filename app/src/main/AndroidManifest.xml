@@ -20,7 +20,7 @@
             android:name=".CoinActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".MarketActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

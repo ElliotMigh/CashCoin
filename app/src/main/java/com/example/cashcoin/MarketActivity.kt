@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import com.example.cashcoin.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MarketActivity : AppCompatActivity() {
     //create binding:
     lateinit var binding:ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
