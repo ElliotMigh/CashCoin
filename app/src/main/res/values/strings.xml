@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">CashCoin</string>
+
+    <string name="period_h">12H</string>
+    <string name="period_1day">1D</string>
+    <string name="period_1week">1W</string>
+    <string name="period_1month">1M</string>
+    <string name="period_3month">3M</string>
+    <string name="period_1year">1Y</string>
+    <string name="period_all">ALL</string>
 </resources>
