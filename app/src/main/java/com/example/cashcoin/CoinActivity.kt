@@ -3,7 +3,6 @@ package com.example.cashcoin
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.cashcoin.databinding.ActivityCoinBinding
-import com.example.cashcoin.databinding.ActivityMainBinding
 
 class CoinActivity : AppCompatActivity() {
     //create binding:

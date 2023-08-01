@@ -3,14 +3,14 @@ package com.example.cashcoin
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.example.cashcoin.databinding.ActivityMainBinding
+import com.example.cashcoin.databinding.ActivityMarketBinding
 
 class MarketActivity : AppCompatActivity() {
-    //create binding:
-    lateinit var binding:ActivityMainBinding
+    ///create binding:
+    lateinit var binding:ActivityMarketBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityMarketBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         //call welcome toast function:

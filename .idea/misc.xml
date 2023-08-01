@@ -8,6 +8,10 @@
         <entry key="app/src/main/res/drawable/range_radio_btn_selector.xml" value="0.112" />
         <entry key="app/src/main/res/layout/activity_coin.xml" value="0.23697916666666666" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.23697916666666666" />
+        <entry key="app/src/main/res/layout/activity_market.xml" value="0.23697916666666666" />
+        <entry key="app/src/main/res/layout/module_news.xml" value="0.2359375" />
+        <entry key="app/src/main/res/layout/module_toolbar.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/module_watchlist.xml" value="0.2359375" />
       </map>
     </option>
   </component>
