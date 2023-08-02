@@ -51,4 +51,7 @@ dependencies {
 
     //sparkview for show to chart:
     implementation 'com.robinhood.spark:spark:1.2.0'
+
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.2.0-alpha01"
+
 }
