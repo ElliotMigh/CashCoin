@@ -1,4 +1,4 @@
-package com.example.cashcoin
+package com.example.cashcoin.features
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
