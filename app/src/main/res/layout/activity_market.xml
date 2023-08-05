@@ -4,8 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MarketActivity">
 
+    <include
+        android:id="@+id/layout_toolbar"
+        layout="@layout/module_toolbar" />
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeRfreshMain"
@@ -23,17 +27,14 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+
                 <include
-                    android:id="@+id/layout_toolbar"
-                    layout="@layout/module_toolbar" />
+                    android:id="@+id/layout_news"
+                    layout="@layout/module_news" />
 
-                <include layout="@layout/module_news">
-
-                </include>
-
-                <include layout="@layout/module_watchlist">
-
-                </include>
+                <include
+                    android:id="@+id/layout_watchlist"
+                    layout="@layout/module_watchlist" />
 
             </LinearLayout>
 
