@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MarketActivity">
+    tools:context=".features.MarketActivity">
 
     <include
         android:id="@+id/layout_toolbar"

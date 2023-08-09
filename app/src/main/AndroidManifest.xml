@@ -17,10 +17,7 @@
         android:theme="@style/AppTheme"
         tools:targetApi="31">
         <activity
-            android:name=".CoinActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MarketActivity"
+            android:name=".features.MarketActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
