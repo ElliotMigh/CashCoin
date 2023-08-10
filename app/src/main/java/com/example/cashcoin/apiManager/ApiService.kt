@@ -1,5 +1,6 @@
 package com.example.cashcoin.apiManager
 
+import com.example.cashcoin.apiManager.model.CoinsData
 import com.example.cashcoin.apiManager.model.NewsData
 import retrofit2.Call
 import retrofit2.http.GET
@@ -13,4 +14,11 @@ interface ApiService {
     fun getTopNews(
         @Query("sortOrder") sortOrder: String = "popular"
     ): Call<NewsData>
+
+    @Headers(API_KEY)
+    @GET("top/totalvolfull")
+    fun getTopCoin(
+        @Query("tsym") to_symbol: String = "USD",
+        @Query("limit") limit_data: Int = 10
+    ): Call<CoinsData>
 }
