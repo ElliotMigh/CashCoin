@@ -9,6 +9,6 @@ interface ApiService {
     @Headers(API_KEY)
     @GET("v2/news")
     fun getTopNews(
-        @Query("sortOrder") sortOrder: String
+        @Query("sortOrder") sortOrder: String = "popular"
     )
 }
