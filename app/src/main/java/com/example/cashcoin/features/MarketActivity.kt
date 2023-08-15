@@ -3,11 +3,16 @@ package com.example.cashcoin.features
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.example.cashcoin.apiManager.ApiManager
 import com.example.cashcoin.databinding.ActivityMarketBinding
 
 class MarketActivity : AppCompatActivity() {
     ///create binding:
     lateinit var binding: ActivityMarketBinding
+
+    //create object api manager
+    val apiManager = ApiManager()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMarketBinding.inflate(layoutInflater)
@@ -29,6 +34,6 @@ class MarketActivity : AppCompatActivity() {
     }
 
     private fun getTopNewsFromApi() {
-        TODO("Not yet implemented")
+
     }
 }
