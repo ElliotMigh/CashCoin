@@ -25,6 +25,10 @@ class MarketActivity : AppCompatActivity() {
     }
 
     private fun initUI() {
+        getTopNewsFromApi()
+    }
 
+    private fun getTopNewsFromApi() {
+        TODO("Not yet implemented")
     }
 }
