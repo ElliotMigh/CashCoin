@@ -9,8 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 const val BASE_URL = "https://min-api.cryptocompare.com/data/"
 const val BASE_URL_IMAGE = "https://www.cryptocompare.com"
-const val API_KEY =
-    "authorization: Apikey 79a0afc8e1acf0c14d61b201c82c5d491e7a8a6be83b94279a4b72b904ba80a9"
+const val API_KEY = "authorization: Apikey 79a0afc8e1acf0c14d61b201c82c5d491e7a8a6be83b94279a4b72b904ba80a9"
 const val APP_NAME = "CashCoin"
 
 class ApiManager {
@@ -30,10 +29,10 @@ class ApiManager {
 
         apiService.getTopNews().enqueue(object : Callback<NewsData> {
             override fun onResponse(call: Call<NewsData>, response: Response<NewsData>) {
-                val data = response.body()!!
+                val data = response.body()!!.data
 
                 val dataToSend: ArrayList<Pair<String, String>> = arrayListOf()
-                data.data.forEach {
+                data.forEach {
                     dataToSend.add(Pair(it.title, it.url))
                 }
                 apiCallBack.onSuccess(dataToSend)
