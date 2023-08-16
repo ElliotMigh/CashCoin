@@ -103,6 +103,8 @@ class MarketActivity : AppCompatActivity(), MarketAdapter.RecyclerCallBack {
     }
 
     override fun onCoinItemClicked(dataCoin: CoinsData.Data) {
-        //
+        //set intent for going to coinActivity:
+        val intentGoToCoinActivity = Intent(this,CoinActivity::class.java)
+        startActivity(intentGoToCoinActivity)
     }
 }
