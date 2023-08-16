@@ -5,11 +5,14 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.cashcoin.apiManager.ApiManager
 import com.example.cashcoin.apiManager.model.CoinsData
 import com.example.cashcoin.databinding.ActivityMarketBinding
+import com.example.cashcoin.features.marketActivity.MarketAdapter
 
-class MarketActivity : AppCompatActivity() {
+class MarketActivity : AppCompatActivity(), MarketAdapter.RecyclerCallBack {
     ///create binding:
     lateinit var binding: ActivityMarketBinding
 
@@ -89,7 +92,17 @@ class MarketActivity : AppCompatActivity() {
 
         })
     }
-    private fun showDataInRecycler(data:List<CoinsData.Data>){
 
+    private fun showDataInRecycler(data: List<CoinsData.Data>) {
+        val marketAdapter = MarketAdapter(ArrayList(data), this)
+        //set adapter on recyclerView:
+        binding.layoutWatchlist.recyclerViewMain.adapter = marketAdapter
+        //set layout manager on recyclerView:
+        binding.layoutWatchlist.recyclerViewMain.layoutManager =
+            LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+    }
+
+    override fun onCoinItemClicked(dataCoin: CoinsData.Data) {
+        //
     }
 }
