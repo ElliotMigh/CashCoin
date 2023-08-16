@@ -10,7 +10,10 @@ import com.example.cashcoin.apiManager.BASE_URL_IMAGE
 import com.example.cashcoin.apiManager.model.CoinsData
 import com.example.cashcoin.databinding.ItemRecyclerMarketBinding
 
-class MarketAdapter(private val data: ArrayList<CoinsData.Data>) :
+class MarketAdapter(
+    private val data: ArrayList<CoinsData.Data>,
+    private val recyclerCallBack: RecyclerCallBack
+) :
     RecyclerView.Adapter<MarketAdapter.MarketViewHolder>() {
     //create binding:
     lateinit var binding: ItemRecyclerMarketBinding
@@ -30,7 +33,7 @@ class MarketAdapter(private val data: ArrayList<CoinsData.Data>) :
 
             //click on item:
             itemView.setOnClickListener {
-
+                recyclerCallBack.onCoinItemClicked(dataCoin)
             }
         }
     }
