@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.cashcoin.apiManager.ApiManager
+import com.example.cashcoin.apiManager.model.CoinsData
 import com.example.cashcoin.databinding.ActivityMarketBinding
 
 class MarketActivity : AppCompatActivity() {
@@ -36,8 +37,10 @@ class MarketActivity : AppCompatActivity() {
 
     private fun initUI() {
         getTopNewsFromApi()
+        getTopCoinsFromApi()
     }
 
+    //for news data:
     private fun getTopNewsFromApi() {
         apiManager.getNews(object : ApiManager.ApiCallBack<ArrayList<Pair<String, String>>> {
             override fun onSuccess(data: ArrayList<Pair<String, String>>) {
@@ -70,5 +73,23 @@ class MarketActivity : AppCompatActivity() {
         binding.layoutNews.txtNews.setOnClickListener {
             refreshNews()
         }
+    }
+
+    //for coins list data:
+    private fun getTopCoinsFromApi() {
+        apiManager.getCoinsList(object : ApiManager.ApiCallBack<List<CoinsData.Data>> {
+            override fun onSuccess(data: List<CoinsData.Data>) {
+                showDataInRecycler(data)
+            }
+
+            override fun onError(errorMessage: String) {
+                Toast.makeText(this@MarketActivity, "ERROR -> $errorMessage", Toast.LENGTH_SHORT)
+                    .show()
+            }
+
+        })
+    }
+    private fun showDataInRecycler(data:List<CoinsData.Data>){
+
     }
 }
