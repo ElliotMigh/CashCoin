@@ -47,7 +47,7 @@ class MarketActivity : AppCompatActivity() {
 
             override fun onError(errorMessage: String) {
                 Toast.makeText(
-                    this@MarketActivity, "ERROR -> " + errorMessage, Toast.LENGTH_SHORT
+                    this@MarketActivity, "ERROR -> $errorMessage", Toast.LENGTH_SHORT
                 ).show()
             }
 
@@ -56,13 +56,16 @@ class MarketActivity : AppCompatActivity() {
 
     private fun refreshNews() {
         val randomAccess = (0..49).random()
+
         binding.layoutNews.txtNews.text = dataNews[randomAccess].first //first=title
+
         //click on img news:
         binding.layoutNews.imgNews.setOnClickListener {
             val intentGoToNews =
                 Intent(Intent.ACTION_VIEW, Uri.parse(dataNews[randomAccess].second)) //second=url
             startActivity(intentGoToNews)
         }
+
         //click on txt news
         binding.layoutNews.txtNews.setOnClickListener {
             refreshNews()
