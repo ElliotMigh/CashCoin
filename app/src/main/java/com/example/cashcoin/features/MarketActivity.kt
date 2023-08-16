@@ -105,6 +105,8 @@ class MarketActivity : AppCompatActivity(), MarketAdapter.RecyclerCallBack {
     override fun onCoinItemClicked(dataCoin: CoinsData.Data) {
         //set intent for going to coinActivity:
         val intentGoToCoinActivity = Intent(this,CoinActivity::class.java)
+        //send data to coin activity with put extra:
+        intentGoToCoinActivity.putExtra("dataToSend",dataCoin)
         startActivity(intentGoToCoinActivity)
     }
 }
