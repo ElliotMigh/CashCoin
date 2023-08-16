@@ -47,4 +47,7 @@ class MarketAdapter(private val data: ArrayList<CoinsData.Data>) :
 
     override fun getItemCount(): Int = data.size
 
+    interface RecyclerCallBack {
+        fun onCoinItemClicked(dataCoin: CoinsData.Data)
+    }
 }
