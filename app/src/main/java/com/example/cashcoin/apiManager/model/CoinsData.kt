@@ -4,6 +4,7 @@ package com.example.cashcoin.apiManager.model
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
+import java.math.BigInteger
 
 data class CoinsData(
     @SerializedName("Data")
@@ -57,7 +58,7 @@ data class CoinsData(
             @SerializedName("Name")
             val name: String,
             @SerializedName("NetHashesPerSecond")
-            val netHashesPerSecond: Int,
+            val netHashesPerSecond: BigInteger,
             @SerializedName("ProofType")
             val proofType: String,
             @SerializedName("Rating")
@@ -88,7 +89,7 @@ data class CoinsData(
         data class DISPLAY(
             @SerializedName("USD")
             val uSD: USD
-        ):Parcelable {
+        ) : Parcelable {
             @Parcelize
             data class USD(
                 @SerializedName("CHANGE24HOUR")
@@ -189,7 +190,7 @@ data class CoinsData(
             @SerializedName("USD")
             val uSD: USD
         ) : Parcelable {
-           @Parcelize
+            @Parcelize
             data class USD(
                 @SerializedName("CHANGE24HOUR")
                 val cHANGE24HOUR: Double,

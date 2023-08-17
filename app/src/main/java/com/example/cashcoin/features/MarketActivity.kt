@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -88,6 +89,7 @@ class MarketActivity : AppCompatActivity(), MarketAdapter.RecyclerCallBack {
             override fun onError(errorMessage: String) {
                 Toast.makeText(this@MarketActivity, "ERROR -> $errorMessage", Toast.LENGTH_SHORT)
                     .show()
+                Log.v("testERROR",errorMessage)
             }
 
         })

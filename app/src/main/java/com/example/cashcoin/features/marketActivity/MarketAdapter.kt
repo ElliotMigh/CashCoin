@@ -1,8 +1,11 @@
 package com.example.cashcoin.features.marketActivity
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
+import androidx.lifecycle.viewmodel.savedstate.R
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.cashcoin.apiManager.BASE_URL
@@ -24,7 +27,15 @@ class MarketAdapter(
             binding.txtCoinName.text = dataCoin.coinInfo.fullName
             binding.txtPrice.text = "$" + dataCoin.rAW.uSD.pRICE.toString()
             binding.txtMarketCap.text = dataCoin.dISPLAY.uSD.mKTCAP
+
+            val taqir = dataCoin.rAW.uSD.cHANGE24HOUR
+            if (taqir > 0) {
+                binding.txtTaqir.setTextColor(Color.parseColor("#50b12a"))
+            } else {
+                binding.txtTaqir.setTextColor(Color.parseColor("#f0655e"))
+            }
             binding.txtTaqir.text = dataCoin.dISPLAY.uSD.cHANGE24HOUR
+
 
             //use Glide library for loading pic from internet using URL:
             Glide.with(itemView)

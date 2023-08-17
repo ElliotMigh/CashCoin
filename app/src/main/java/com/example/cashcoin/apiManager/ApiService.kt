@@ -16,9 +16,9 @@ interface ApiService {
     ): Call<NewsData>
 
     @Headers(API_KEY)
-    @GET("top/totalvolfull/")
+    @GET("top/totalvolfull")
     fun getTopCoin(
         @Query("tsym") to_symbol: String = "USD",
-        @Query("limit") limit_data: Int = 10
+        @Query("limit") limit_data: Int = 20
     ): Call<CoinsData>
 }
