@@ -4,6 +4,8 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -36,8 +38,19 @@ class MarketActivity : AppCompatActivity(), MarketAdapter.RecyclerCallBack {
 
         //click on btn MORE:
         binding.layoutWatchlist.btnShowMore.setOnClickListener {
-            val intentShowMoreCoins = Intent(Intent.ACTION_VIEW,Uri.parse("https://coinmarketcap.com"))
+            val intentShowMoreCoins =
+                Intent(Intent.ACTION_VIEW, Uri.parse("https://www.livecoinwatch.com"))
             startActivity(intentShowMoreCoins)
+        }
+
+        //click on swiper refresh:
+        binding.swipeRefreshMain.setOnRefreshListener {
+            initUI()
+
+            //delayed when not refresh:
+            Handler(Looper.getMainLooper()).postDelayed({
+                binding.swipeRefreshMain.isRefreshing = false
+            }, 1500)
         }
     }
 
@@ -95,7 +108,7 @@ class MarketActivity : AppCompatActivity(), MarketAdapter.RecyclerCallBack {
             override fun onError(errorMessage: String) {
                 Toast.makeText(this@MarketActivity, "ERROR -> $errorMessage", Toast.LENGTH_SHORT)
                     .show()
-                Log.v("testERROR",errorMessage)
+                Log.v("testERROR", errorMessage)
             }
 
         })
@@ -112,9 +125,9 @@ class MarketActivity : AppCompatActivity(), MarketAdapter.RecyclerCallBack {
 
     override fun onCoinItemClicked(dataCoin: CoinsData.Data) {
         //set intent for going to coinActivity:
-        val intentGoToCoinActivity = Intent(this,CoinActivity::class.java)
+        val intentGoToCoinActivity = Intent(this, CoinActivity::class.java)
         //send data to coin activity with put extra:
-        intentGoToCoinActivity.putExtra("dataToSend",dataCoin)
+        intentGoToCoinActivity.putExtra("dataToSend", dataCoin)
         startActivity(intentGoToCoinActivity)
     }
 }
