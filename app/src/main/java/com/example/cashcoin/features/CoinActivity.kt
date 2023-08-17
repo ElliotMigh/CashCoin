@@ -11,5 +11,26 @@ class CoinActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityCoinBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        //call initUI function for initial user interface:
+        initUI()
+    }
+
+    private fun initUI() {
+        initChartUi()
+        initStatisticsUi()
+        initAboutUi()
+    }
+
+    private fun initStatisticsUi() {
+        TODO("Not yet implemented")
+    }
+
+    private fun initAboutUi() {
+        TODO("Not yet implemented")
+    }
+
+    private fun initChartUi() {
+        TODO("Not yet implemented")
     }
 }
