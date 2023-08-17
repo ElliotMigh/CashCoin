@@ -33,6 +33,12 @@ class MarketActivity : AppCompatActivity(), MarketAdapter.RecyclerCallBack {
 
         //call init ui function:
         initUI()
+
+        //click on btn MORE:
+        binding.layoutWatchlist.btnShowMore.setOnClickListener {
+            val intentShowMoreCoins = Intent(Intent.ACTION_VIEW,Uri.parse("https://coinmarketcap.com"))
+            startActivity(intentShowMoreCoins)
+        }
     }
 
     private fun welcomeToast() {
