@@ -4,7 +4,11 @@ import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import com.example.cashcoin.apiManager.ApiManager
+import com.example.cashcoin.apiManager.HOUR
+import com.example.cashcoin.apiManager.HOUR24
+import com.example.cashcoin.apiManager.model.ChartData
 import com.example.cashcoin.apiManager.model.CoinsData
 import com.example.cashcoin.databinding.ActivityCoinBinding
 
@@ -16,7 +20,7 @@ class CoinActivity : AppCompatActivity() {
     private lateinit var dataThisCoin: CoinsData.Data
 
     //api manager
-    lateinit var apiManager: ApiManager
+    val apiManager = ApiManager()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,6 +60,23 @@ class CoinActivity : AppCompatActivity() {
     }
 
     private fun initChartUi() {
+        //call getChartData function:
+        apiManager.getChartData(
+            "BTC",
+            HOUR,
+            object : ApiManager.ApiCallBack<Pair<List<ChartData.Data>, ChartData.Data?>> {
+                override fun onSuccess(data: Pair<List<ChartData.Data>, ChartData.Data?>) {
+                    Log.v("testChart", data.first.toString())
+                }
 
+                override fun onError(errorMessage: String) {
+                    Toast.makeText(
+                        this@CoinActivity,
+                        "ERROR -> $errorMessage",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+
+            })
     }
 }
