@@ -25,7 +25,7 @@ class MarketAdapter(
         //create function for set views:
         fun bindViews(dataCoin: CoinsData.Data) {
             binding.txtCoinName.text = dataCoin.coinInfo.fullName
-            binding.txtPrice.text = "$" + dataCoin.rAW.uSD.pRICE.toString()
+            binding.txtPrice.text = dataCoin.dISPLAY.uSD.pRICE
             binding.txtMarketCap.text = dataCoin.dISPLAY.uSD.mKTCAP
 
             val taqir = dataCoin.rAW.uSD.cHANGE24HOUR

@@ -116,7 +116,7 @@
             app:layout_constraintTop_toBottomOf="@+id/txtChangeTodaysAmount" />
 
         <TextView
-            android:id="@+id/txtVolumeAmount"
+            android:id="@+id/txtAlgorithmAmount"
             style="@style/CoinBitText.Body1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -130,12 +130,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Volume"
+            android:text="Algorithm"
             app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toBottomOf="@+id/txtVolumeAmount" />
+            app:layout_constraintTop_toBottomOf="@+id/txtAlgorithmAmount" />
 
         <TextView
-            android:id="@+id/txtAverageVolumeAmount"
+            android:id="@+id/txtTotalVolumeAmount"
             style="@style/CoinBitText.Body1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -149,9 +149,9 @@
             style="@style/CoinBitText.TitleAlternate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Average Volume"
+            android:text="Total Volume"
             app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toBottomOf="@+id/txtAverageVolumeAmount" />
+            app:layout_constraintTop_toBottomOf="@+id/txtTotalVolumeAmount" />
 
         <TextView
             android:id="@+id/txtMarketCapAmount"
