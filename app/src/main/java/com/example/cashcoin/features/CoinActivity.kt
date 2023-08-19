@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.example.cashcoin.apiManager.ApiManager
 import com.example.cashcoin.apiManager.model.CoinsData
 import com.example.cashcoin.databinding.ActivityCoinBinding
 
@@ -13,6 +14,9 @@ class CoinActivity : AppCompatActivity() {
 
     //create dataCoin variable:
     private lateinit var dataThisCoin: CoinsData.Data
+
+    //api manager
+    lateinit var apiManager: ApiManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +34,7 @@ class CoinActivity : AppCompatActivity() {
     }
 
     private fun initUI() {
-//        initChartUi()
+        initChartUi()
         initStatisticsUi()
 //        initAboutUi()
     }
@@ -52,6 +56,6 @@ class CoinActivity : AppCompatActivity() {
     }
 
     private fun initChartUi() {
-        Log.v("test", "test")
+
     }
 }
