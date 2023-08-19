@@ -1,5 +1,6 @@
 package com.example.cashcoin.apiManager
 
+import com.example.cashcoin.apiManager.model.ChartData
 import com.example.cashcoin.apiManager.model.CoinsData
 import com.example.cashcoin.apiManager.model.NewsData
 import retrofit2.Call
@@ -7,12 +8,6 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-
-const val BASE_URL = "https://min-api.cryptocompare.com/data/"
-const val BASE_URL_IMAGE = "https://www.cryptocompare.com"
-const val API_KEY =
-    "authorization: Apikey 79a0afc8e1acf0c14d61b201c82c5d491e7a8a6be83b94279a4b72b904ba80a9"
-const val APP_NAME = "CashCoin"
 
 class ApiManager {
 
@@ -59,6 +54,68 @@ class ApiManager {
             }
 
         })
+    }
+
+    fun getChartData(
+        symbol: String,
+        period: String,
+        apiCallBack: ApiCallBack<ChartData>
+    ) {
+
+        var histoPeriod = ""
+        var limit = 30
+        var aggregate = 1
+
+        when (period) {
+            HOUR -> {
+                histoPeriod = HISTO_MINUTE
+                limit - 60
+                aggregate = 12
+            }
+            HOUR24 -> {
+                histoPeriod = HISTO_HOUR
+                limit = 24
+            }
+
+            MONTH -> {
+                histoPeriod = HISTO_DAY
+                limit = 30
+            }
+
+            MONTH3 -> {
+                histoPeriod = HISTO_DAY
+                limit = 90
+            }
+
+            WEEK -> {
+                histoPeriod = HISTO_HOUR
+                aggregate = 6
+            }
+
+            YEAR -> {
+                histoPeriod = HISTO_DAY
+                aggregate = 13
+            }
+
+            ALL -> {
+                histoPeriod = HISTO_DAY
+                aggregate = 30
+                limit = 2000
+            }
+        }
+
+        apiService.getChartData(histoPeriod, symbol, limit, aggregate)
+            .enqueue(object : Callback<ChartData> {
+                override fun onResponse(call: Call<ChartData>, response: Response<ChartData>) {
+                    val dataToBack = response.body()!!
+                    apiCallBack.onSuccess(response.body()!!)
+                }
+
+                override fun onFailure(call: Call<ChartData>, t: Throwable) {
+                    apiCallBack.onError(t.message!!)
+                }
+
+            })
     }
 
     interface ApiCallBack<T> {
