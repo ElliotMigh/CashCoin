@@ -29,6 +29,8 @@ class MarketActivity : AppCompatActivity(), MarketAdapter.RecyclerCallBack {
         super.onCreate(savedInstanceState)
         binding = ActivityMarketBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        //set title on toolbar:
+        binding.layoutToolbar.toolbar.title = "Coin Market"
 
         //call welcome toast function:
         welcomeToast()

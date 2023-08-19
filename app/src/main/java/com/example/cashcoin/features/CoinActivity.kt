@@ -18,9 +18,11 @@ class CoinActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityCoinBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.layoutToolbar.toolbar.title = "About Coin"
 
         dataThisCoin = intent.getParcelableExtra<CoinsData.Data>("dataToSend")!!
+
+        //set title on toolbar
+        binding.layoutToolbar.toolbar.title = dataThisCoin.coinInfo.fullName
 
 
         //call initUI function for initial user interface:
