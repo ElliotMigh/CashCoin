@@ -8,14 +8,22 @@ class ChartAdapter(
     private val baseLine: String?
 ) : SparkAdapter() {
     override fun getCount(): Int {
-        TODO("Not yet implemented")
+        return historyCallData.size
     }
 
-    override fun getItem(index: Int): Any {
-        TODO("Not yet implemented")
+    override fun getItem(index: Int): ChartData.Data {
+        return historyCallData[index]
     }
 
     override fun getY(index: Int): Float {
-        TODO("Not yet implemented")
+        return historyCallData[index].close.toFloat()
+    }
+
+    override fun hasBaseLine(): Boolean {
+        return true
+    }
+
+    override fun getBaseLine(): Float {
+        return baseLine?.toFloat() ?: super.getBaseLine()
     }
 }
