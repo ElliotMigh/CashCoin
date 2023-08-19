@@ -59,7 +59,7 @@ class ApiManager {
     fun getChartData(
         symbol: String,
         period: String,
-        apiCallBack: ApiCallBack<ChartData>
+        apiCallBack: ApiCallBack<Pair<List<ChartData.Data>, ChartData.Data?>>
     ) {
 
         var histoPeriod = ""
@@ -107,8 +107,13 @@ class ApiManager {
         apiService.getChartData(histoPeriod, symbol, limit, aggregate)
             .enqueue(object : Callback<ChartData> {
                 override fun onResponse(call: Call<ChartData>, response: Response<ChartData>) {
-                    val dataToBack = response.body()!!
-                    apiCallBack.onSuccess(response.body()!!)
+
+                    val dataFull = response.body()!!
+                    val data1 = dataFull.data
+                    val data2 = dataFull.data.maxByOrNull { it.close.toFloat() }
+                    val returningData = Pair(data1, data2)
+
+                    apiCallBack.onSuccess(returningData)
                 }
 
                 override fun onFailure(call: Call<ChartData>, t: Throwable) {
