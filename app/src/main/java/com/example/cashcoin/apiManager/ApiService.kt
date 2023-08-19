@@ -1,5 +1,6 @@
 package com.example.cashcoin.apiManager
 
+import com.example.cashcoin.apiManager.model.ChartData
 import com.example.cashcoin.apiManager.model.CoinsData
 import com.example.cashcoin.apiManager.model.NewsData
 import retrofit2.Call
@@ -28,5 +29,5 @@ interface ApiService {
         @Query("limit") limit_data: Int,
         @Query("aggregate") aggregate: Int,
         @Query("tsym") toSymbol: String = "USD"
-    )
+    ) : Call<ChartData>
 }
