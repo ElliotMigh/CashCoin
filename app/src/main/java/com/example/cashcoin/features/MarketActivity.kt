@@ -30,7 +30,7 @@ class MarketActivity : AppCompatActivity(), MarketAdapter.RecyclerCallBack {
         binding = ActivityMarketBinding.inflate(layoutInflater)
         setContentView(binding.root)
         //set title on toolbar:
-        binding.layoutToolbar.toolbar.title = "Coin Market"
+        binding.layoutToolbar.toolbar.title = "CashCoin$ Market"
 
         //call welcome toast function:
         welcomeToast()
