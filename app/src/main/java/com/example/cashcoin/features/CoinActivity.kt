@@ -11,6 +11,7 @@ import com.example.cashcoin.apiManager.HOUR24
 import com.example.cashcoin.apiManager.model.ChartData
 import com.example.cashcoin.apiManager.model.CoinsData
 import com.example.cashcoin.databinding.ActivityCoinBinding
+import com.example.cashcoin.features.coinActivity.ChartAdapter
 
 class CoinActivity : AppCompatActivity() {
     //create binding:
@@ -66,7 +67,9 @@ class CoinActivity : AppCompatActivity() {
             HOUR,
             object : ApiManager.ApiCallBack<Pair<List<ChartData.Data>, ChartData.Data?>> {
                 override fun onSuccess(data: Pair<List<ChartData.Data>, ChartData.Data?>) {
-                    Log.v("testChart", data.first.toString())
+
+                    val chartAdapter = ChartAdapter(data.first, data.second?.open.toString())
+                    binding.layoutChart.sparkView.adapter = chartAdapter
                 }
 
                 override fun onError(errorMessage: String) {
