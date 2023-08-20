@@ -63,6 +63,12 @@ class CoinActivity : AppCompatActivity() {
     private fun initChartUi() {
 
         var period: String = HOUR
+        //click on radioGroup:
+        binding.layoutChart.radioGroup.setOnCheckedChangeListener { _, checkId ->
+            when (checkId) {
+
+            }
+        }
 
         //call getChartData function:
         apiManager.getChartData(
