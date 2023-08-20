@@ -61,10 +61,13 @@ class CoinActivity : AppCompatActivity() {
     }
 
     private fun initChartUi() {
+
+        var period: String = HOUR
+
         //call getChartData function:
         apiManager.getChartData(
-            "BTC",
-            HOUR,
+            dataThisCoin.coinInfo.name,
+            period,
             object : ApiManager.ApiCallBack<Pair<List<ChartData.Data>, ChartData.Data?>> {
                 override fun onSuccess(data: Pair<List<ChartData.Data>, ChartData.Data?>) {
 
