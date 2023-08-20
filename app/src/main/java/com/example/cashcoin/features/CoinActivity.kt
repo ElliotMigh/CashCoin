@@ -130,6 +130,17 @@ class CoinActivity : AppCompatActivity() {
             )
 
         }
+
+        //set scrub listener on sparkView:
+        binding.layoutChart.sparkView.setScrubListener {
+            //show full price:
+            if (it == null) {
+                binding.layoutChart.txtPrice.text = dataThisCoin.dISPLAY.uSD.pRICE
+            } else {
+                //show price this dot . :
+                binding.layoutChart.txtPrice.text = "$" + (it as ChartData.Data).close.toString()
+            }
+        }
     }
 
     private fun requestAndShowData(period: String) {
