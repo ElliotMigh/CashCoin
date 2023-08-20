@@ -8,5 +8,13 @@ But if you want to see more coins, you can click on the more button.
 
 By clicking on each coin, you can see the coin chart, the price, the amount of change, the type of algorithm, and whether the price is high or low.
 
-<img width="295" alt="screenViewFoodApp" src="![sc_home_cashcoin](https://github.com/ElliotMigh/CashCoin/assets/87560931/d0e8a61c-f468-40f7-a7ef-eb6c43bea798)
-">
+![sc_home_cashcoin](https://github.com/ElliotMigh/CashCoin/assets/87560931/dc3f19fd-0b97-4fa3-a452-bc49a7f5a7b0)
+
+
+![sc_hederainfo](https://github.com/ElliotMigh/CashCoin/assets/87560931/2a9162eb-7fdc-46b5-af04-7f7fcde58c70)
+
+
+![sc_btc_info](https://github.com/ElliotMigh/CashCoin/assets/87560931/d3e2709b-c2dd-4000-8c92-6f918d26c9e4)
+
+
+
