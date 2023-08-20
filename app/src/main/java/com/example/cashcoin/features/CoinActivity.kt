@@ -5,9 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import com.example.cashcoin.apiManager.ApiManager
-import com.example.cashcoin.apiManager.HOUR
-import com.example.cashcoin.apiManager.HOUR24
+import com.example.cashcoin.R
+import com.example.cashcoin.apiManager.*
 import com.example.cashcoin.apiManager.model.ChartData
 import com.example.cashcoin.apiManager.model.CoinsData
 import com.example.cashcoin.databinding.ActivityCoinBinding
@@ -63,13 +62,39 @@ class CoinActivity : AppCompatActivity() {
     private fun initChartUi() {
 
         var period: String = HOUR
+        //for first show data:
+        requestAndShowData(period)
+
         //click on radioGroup:
         binding.layoutChart.radioGroup.setOnCheckedChangeListener { _, checkId ->
             when (checkId) {
-
+                R.id.radio12h -> {
+                    period = HOUR
+                }
+                R.id.radio1d -> {
+                    period = HOUR24
+                }
+                R.id.radio1w -> {
+                    period = WEEK
+                }
+                R.id.radio1m -> {
+                    period = MONTH
+                }
+                R.id.radio3m -> {
+                    period = MONTH3
+                }
+                R.id.radio1y -> {
+                    period = YEAR
+                }
+                R.id.radioAll -> {
+                    period = ALL
+                }
             }
+            requestAndShowData(period)
         }
+    }
 
+   private fun requestAndShowData(period: String) {
         //call getChartData function:
         apiManager.getChartData(
             dataThisCoin.coinInfo.name,

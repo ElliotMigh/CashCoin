@@ -111,7 +111,7 @@
             android:layout_weight="1"
             android:background="@drawable/range_radio_btn_selector_background"
             android:button="@null"
-            android:checked="false"
+            android:checked="true"
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
             android:text="@string/period_h"
