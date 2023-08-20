@@ -1,10 +1,12 @@
 package com.example.cashcoin.features
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import com.example.cashcoin.R
 import com.example.cashcoin.apiManager.*
 import com.example.cashcoin.apiManager.model.ChartData
@@ -59,6 +61,7 @@ class CoinActivity : AppCompatActivity() {
         Log.v("test", "test")
     }
 
+    @SuppressLint("SetTextI18n")
     private fun initChartUi() {
 
         var period: String = HOUR
@@ -97,10 +100,39 @@ class CoinActivity : AppCompatActivity() {
         binding.layoutChart.txtPrice.text = dataThisCoin.dISPLAY.uSD.pRICE
 
         //change txt chartChange2:
-        binding.layoutChart.txtChartChange2.text = dataThisCoin.dISPLAY.uSD.cHANGE24HOUR
+        binding.layoutChart.txtChartChange2.text =
+            dataThisCoin.rAW.uSD.cHANGEPCT24HOUR.toString().substring(0, 5) + "%"
+        binding.layoutChart.txtChartChange1.text = dataThisCoin.dISPLAY.uSD.cHANGE24HOUR
+
+        val taqir = dataThisCoin.rAW.uSD.cHANGE24HOUR
+        if (taqir > 0) {
+
+            binding.layoutChart.txtChartChange2.setTextColor(Color.parseColor("#50b12a"))
+            binding.layoutChart.txtChartUpDown.setTextColor(Color.parseColor("#50b12a"))
+            binding.layoutChart.txtChartUpDown.text = "▲"
+
+            //change spark color:
+            binding.layoutChart.sparkView.lineColor = ContextCompat.getColor(
+                binding.root.context,
+                R.color.colorGain
+            )
+
+        } else if (taqir < 0) {
+
+            binding.layoutChart.txtChartChange2.setTextColor(Color.parseColor("#f0655e"))
+            binding.layoutChart.txtChartUpDown.setTextColor(Color.parseColor("#f0655e"))
+            binding.layoutChart.txtChartUpDown.text = "▼"
+
+            //change spark color:
+            binding.layoutChart.sparkView.lineColor = ContextCompat.getColor(
+                binding.root.context,
+                R.color.colorLoss
+            )
+
+        }
     }
 
-   private fun requestAndShowData(period: String) {
+    private fun requestAndShowData(period: String) {
         //call getChartData function:
         apiManager.getChartData(
             dataThisCoin.coinInfo.name,
