@@ -92,6 +92,12 @@ class CoinActivity : AppCompatActivity() {
             }
             requestAndShowData(period)
         }
+
+        //change txt price:
+        binding.layoutChart.txtPrice.text = dataThisCoin.dISPLAY.uSD.pRICE
+
+        //change txt chartChange2:
+        binding.layoutChart.txtChartChange2.text = dataThisCoin.dISPLAY.uSD.cHANGE24HOUR
     }
 
    private fun requestAndShowData(period: String) {
